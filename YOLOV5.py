@@ -1,5 +1,3 @@
-#run in the yolov5 virtual enviroment
-
 import cv2
 import glob
 import os
@@ -55,7 +53,8 @@ with open(csv_log_path, mode='w', newline='') as csvfile:
         save_path = os.path.join(output_folder, base_name)
         cv2.imwrite(save_path, annotated_frame)
 
-        # Write results to CSV
+        # Get the inference rate
         writer.writerow([base_name, f"{latency_ms:.2f}", w, h])
+
 
 print("Inference and logging complete!")
